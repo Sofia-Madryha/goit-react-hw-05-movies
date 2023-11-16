@@ -11,3 +11,13 @@ export const fetchTrending = async () => {
     const response = await axios.get(`/trending/all/day?api_key=${API_KEY}&language=en-US`);
     return response;
   };
+
+export const fetchMoviesByQuery = async (query)=>{
+  const response = await axios.get(`https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${API_KEY}&language=en-US`);
+  return response;
+}
+
+export const fetchMovieById = async (movieId)=>{
+  const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US&api_key=${API_KEY}`);
+  return response;
+}

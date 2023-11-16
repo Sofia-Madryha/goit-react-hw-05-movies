@@ -18,6 +18,6 @@ export default function HomePage() {
     getTitles();
   }, []);
 
-  console.log(movieData);
+
   return <TitleList movie={movieData} />;
 }

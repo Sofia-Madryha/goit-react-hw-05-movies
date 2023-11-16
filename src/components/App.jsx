@@ -1,6 +1,9 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import HomePage from './pages/HomePage';
+import MoviePage from './pages/MoviePage';
+import MovieDetailsPage from './pages/MovieDetailsPage';
+import { Layout } from './Layout';
 
 const Link = styled(NavLink)`
   &.acive {
@@ -10,20 +13,14 @@ const Link = styled(NavLink)`
 
 export const App = () => {
   return (
-    <div>
-      <header>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/movies">Movies</Link>
-        </nav>
-      </header>
-      <Routes>
-        <Route path="/" element={<HomePage/>} />
-        <Route path="/movies" element={<div>Movies</div>} />
-        <Route path="/movies/:movieId" element={<div>MovieDetails</div>} />
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="/movies" element={<MoviePage />} />
+        <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
         <Route path="/movies/:movieId/cast" element={<div>Cast</div>} />
         <Route path="/movies/:movieId/reviews" element={<div>Reviews</div>} />
-      </Routes>
-    </div>
+      </Route>
+    </Routes>
   );
 };
