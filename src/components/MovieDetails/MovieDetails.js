@@ -1,3 +1,5 @@
+import { Link, Outlet } from 'react-router-dom';
+
 export const MovieDetails = ({
   movie: {
     poster_path,
@@ -8,14 +10,17 @@ export const MovieDetails = ({
     genres,
     id,
   },
+  cast,
 }) => {
   const date = new Date(release_date);
   const year = date.getFullYear();
   return (
     <div>
+<Link to={"/"}>Go back..</Link>
+
       <img
         src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-        alt="{title}"
+        alt={title}
         width={200}
       ></img>
       <h1>

@@ -3,9 +3,11 @@ import { TitleList } from 'components/TitleList/TitleList';
 import { fetchMoviesByQuery } from 'components/api';
 import { useEffect, useState } from 'react';
 
+
 export default function MoviePage() {
   const [query, setQuery] = useState('');
   const [moviesDataByQuery, setMovieDataByQuery] = useState([]);
+
 
   useEffect(() => {
     if (!query) {
@@ -24,17 +26,18 @@ export default function MoviePage() {
     }
   }, [query]);
 
+
+ 
   const handleSubmit = evt => {
     evt.preventDefault();
     const form = evt.currentTarget;
-    const searchValue = form.elements.query.value;
-
+    let searchValue = form.elements.query.value;
     setQuery(searchValue);
   };
 
   return (
     <div>
-      <SearchBar onSubmit={handleSubmit} />
+      <SearchBar onSubmit={handleSubmit} query={query}/>
       {moviesDataByQuery && <TitleList movie={moviesDataByQuery} />}
     </div>
   );
