@@ -6,7 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 
 export default function MoviePage() {
   const [moviesDataByQuery, setMovieDataByQuery] = useState([]);
-  const [queryParams, setQueryParams] = useSearchParams();
+  const [queryParams] = useSearchParams();
   const searchValue = queryParams.get('query') ?? '';
 
   useEffect(() => {
