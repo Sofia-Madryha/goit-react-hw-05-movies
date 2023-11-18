@@ -1,6 +1,7 @@
 import { fetchMovieReview } from 'components/api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { ReviewContainer } from './Reviews.styled';
 
 export const Reviews = () => {
   const [movieReview, setMovieReview] = useState([]);
@@ -23,14 +24,14 @@ export const Reviews = () => {
     <div>
         
       {movieReview.length > 0 ? (
-        <ul>
+        <ReviewContainer>
           {movieReview.map(item => (
             <li key={item.id}>
               <h3> Author: {item.author}</h3>
               <p>{item.content}</p>
             </li>
           ))}
-        </ul>
+        </ReviewContainer>
       ) : (
         <p>There are not any reviews for this movie</p>
       )}

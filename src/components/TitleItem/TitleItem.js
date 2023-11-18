@@ -1,5 +1,8 @@
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { MovieLink } from './TitleItem.styled';
 
 export const TitleItem = ({ title }) => {
-  return <Link to={`/movies/${title.id}`} key={title.id}>{title.title || title.name}</Link>;
+  const location = useLocation();
+
+  return <MovieLink to={`/movies/${title.id}`} state = {{from: location}} key={title.id}>{title.title || title.name}</MovieLink>;
 };

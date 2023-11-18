@@ -4,22 +4,15 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import { App } from 'components/App';
-import './index.css';
+
 import { GlobalStyle } from 'components/GlobalStyle';
 
 const theme = {
   colors: {
-    white: '#fff',
-    black: '#212121',
-    green: 'green',
-    blue: 'blue',
-    orange: 'orange',
-    error: 'red',
-  },
-  radii: {
-    sm: '4px',
-    md: '8px',
-    lg: '12px',
+    accent: '#CD7F32',
+    orange: '#DAA520',
+    black: '#000000',
+    lightOrange: '#FFDEAD'
   },
   spacing: value => `${value * 4}px`,
 };

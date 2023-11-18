@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 
 export default function HomePage() {
   const [movieData, setMovieData] = useState([]);
-//   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
     //fetch data
@@ -13,11 +12,10 @@ export default function HomePage() {
       const moviesData = movies.data.results;
 
       setMovieData([...moviesData]);
-    //   setMovie([...moviesData.map(item => item.title || item.name)]);
+      //   setMovie([...moviesData.map(item => item.title || item.name)]);
     }
     getTitles();
   }, []);
 
-
-  return <TitleList movie={movieData} />;
+  return <div> {movieData && <TitleList movie={movieData} />}</div>;
 }

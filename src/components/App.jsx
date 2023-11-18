@@ -1,19 +1,11 @@
-import { NavLink, Route, Routes } from 'react-router-dom';
-import styled from 'styled-components';
-import HomePage from './pages/HomePage';
-import MoviePage from './pages/MoviePage';
-import MovieDetailsPage from './pages/MovieDetailsPage';
-
-import { Layout } from './Layout';
-
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from './Layout/Layout';
+import { lazy } from 'react';
 import { CastInfo } from './CastInfo/CastInfo';
 import { Reviews } from './Reviews/Reviews';
-
-const Link = styled(NavLink)`
-  &.acive {
-    color: orange;
-  }
-`;
+const HomePage = lazy(() => import('./pages/HomePage'));
+const MoviePage = lazy(() => import('./pages/MoviePage'));
+const MovieDetailsPage = lazy(() => import('./pages/MovieDetailsPage'));
 
 export const App = () => {
   return (
@@ -22,8 +14,8 @@ export const App = () => {
         <Route index element={<HomePage />} />
         <Route path="/movies" element={<MoviePage />} />
         <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
-          <Route path="cast" element= {<CastInfo />} />
-          <Route path="reviews" element = {<Reviews />}/>
+          <Route path="cast" element={<CastInfo />} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
       </Route>
     </Routes>
